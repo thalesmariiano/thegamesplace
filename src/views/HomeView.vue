@@ -9,7 +9,7 @@
             :game="game"
             @click="viewGameDetails(game.id)"
 
-            class="hover:scale-105 transition-all cursor-pointer"
+            class="card-hover"
           />
         </CardsRow>
       </div>
@@ -23,7 +23,7 @@
           :key="dev.id"
           :dev="dev"
 
-          class="hover:scale-105 transition-all cursor-pointer"
+          class="card-hover"
         />
       </CardsRow>
     </div>
@@ -90,5 +90,8 @@
 <style scoped>
   .section-title {
     @apply font-bold text-3xl text-neutral-300;
+  }
+  .card-hover {
+    @apply hover:scale-105 transition-all cursor-pointer
   }
 </style>
