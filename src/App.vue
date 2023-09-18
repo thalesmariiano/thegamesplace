@@ -1,6 +1,6 @@
 <template>
   <header>
-    <Header />
+    <AppHeader />
   </Header>
   <div class="p-5">
     <RouterView />
@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-  import Header from '@/components/Header.vue'
+  import AppHeader from '@/components/AppHeader.vue'
   import { RouterView } from 'vue-router'
 </script>
 
