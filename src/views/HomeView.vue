@@ -2,7 +2,7 @@
   <section class="mb-5">
       <div>
         <h1 class="section-title">Jogos</h1>
-        <GamesRow>
+        <CardsRow>
           <GamesCard
             v-for="game in games"
             :key="game.id"
@@ -10,13 +10,13 @@
 
             class="hover:scale-105 transition-all cursor-pointer"
           />
-        </GamesRow>
+        </CardsRow>
       </div>
   </section>
   <section>
     <div>
       <h1 class="section-title">Desenvolvedoras</h1>
-      <GamesRow>
+      <CardsRow>
         <DevelopersCard
           v-for="dev in developers"
           :key="dev.id"
@@ -24,7 +24,7 @@
 
           class="hover:scale-105 transition-all cursor-pointer"
         />
-      </GamesRow>
+      </CardsRow>
     </div>
   </section>
 </template>
@@ -32,7 +32,7 @@
 <script>
   import axios from "axios";
   import GamesCard from '@/components/GamesCard.vue'
-  import GamesRow from '@/components/GamesRow.vue'
+  import CardsRow from '@/components/CardsRow.vue'
   import DevelopersCard from '@/components/DevelopersCard.vue'
 
   import { ref, onBeforeMount } from 'vue'
@@ -40,7 +40,7 @@
   export default {
     name: 'App',
     components: {
-      GamesRow,
+      CardsRow,
       GamesCard,
       DevelopersCard,
     },
