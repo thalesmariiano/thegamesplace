@@ -14,7 +14,18 @@
       </div>
   </section>
   <section>
-    <h1 class="section-title">Desenvolvedoras</h1>    
+    <div>
+      <h1 class="section-title">Desenvolvedoras</h1>
+      <GamesRow>
+        <DevelopersCard
+          v-for="dev in developers"
+          :key="dev.id"
+          :dev="dev"
+
+          class="hover:scale-105 transition-all cursor-pointer"
+        />
+      </GamesRow>
+    </div>
   </section>
 </template>
 
@@ -55,7 +66,8 @@
       })
 
       return {
-        games
+        games,
+        developers
       }
     }
   } 
