@@ -1,5 +1,5 @@
 <template>
-	<div class="flex justify-between p-5 bg-neutral-900 text-white shadow-md">
+	<div class="flex gap-x-16 items-center p-5 bg-neutral-900 text-white shadow-md">
 		<h1 class="uppercase font-bold text-2xl text-red-500">The Games Place</h1>
 		<nav class="space-x-3">
 			<RouterLink class="text-lg hover:underline" to="/">Início</RouterLink>
