@@ -22,6 +22,7 @@
   import axios from "axios";
   import GamesCard from '@/components/GamesCard.vue'
   import GamesRow from '@/components/GamesRow.vue'
+  import DevelopersCard from '@/components/DevelopersCard.vue'
 
   import { ref, onBeforeMount } from 'vue'
 
@@ -30,6 +31,7 @@
     components: {
       GamesRow,
       GamesCard,
+      DevelopersCard,
     },
     setup(){
       let games = ref({})
