@@ -7,6 +7,7 @@
             v-for="game in games"
             :key="game.id"
             :game="game"
+            @click="viewGameDetails(game.id)"
 
             class="hover:scale-105 transition-all cursor-pointer"
           />
@@ -31,6 +32,7 @@
 
 <script>
   import axios from "axios";
+  import { useRoute, useRouter } from 'vue-router'
   import GamesCard from '@/components/GamesCard.vue'
   import CardsRow from '@/components/CardsRow.vue'
   import DevelopersCard from '@/components/DevelopersCard.vue'
@@ -47,6 +49,10 @@
     setup(){
       let games = ref({})
       let developers = ref({})
+      const route = useRoute()
+      const router = useRouter()
+
+      const viewGameDetails = gameId => router.push(`/games/${gameId}`)
 
       const fetchGames = () => {
         fetch('https://api.rawg.io/api/games?key=efb519ffa3e047cebdba546fdcfd63d2&page_size=6')
@@ -67,7 +73,8 @@
 
       return {
         games,
-        developers
+        developers,
+        viewGameDetails
       }
     }
   } 
