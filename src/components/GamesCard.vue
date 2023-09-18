@@ -1,6 +1,8 @@
 <template>
-	<div>
-		<p>{{ game.name }}</p>
+	<div class="w-72 h-40 shrink-0 overflow-hidden rounded-lg">
+		<div>
+			<img class="w-full h-full" :src="game.background_image">
+		</div>
 	</div>
 </template>
 
