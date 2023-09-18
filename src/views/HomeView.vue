@@ -1,7 +1,7 @@
 <template>
-  <section>
-    <h1 class="section-title">Jogos</h1>
+  <section class="mb-5">
       <div>
+        <h1 class="section-title">Jogos</h1>
         <GamesRow>
           <GamesCard
             v-for="game in games"
