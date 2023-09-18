@@ -33,6 +33,7 @@
     },
     setup(){
       let games = ref({})
+      let developers = ref({})
 
       const fetchGames = () => {
         fetch('https://api.rawg.io/api/games?key=efb519ffa3e047cebdba546fdcfd63d2&page_size=6')
@@ -40,8 +41,15 @@
         .then(data => games.value = data.results)
       }
 
+      const fetchDevelopers = () => {
+        fetch('https://api.rawg.io/api/developers?key=efb519ffa3e047cebdba546fdcfd63d2&page_size=6')
+        .then(res => res.json())
+        .then(data => developers.value = data.results) 
+      }
+
       onBeforeMount(() => {
         fetchGames()
+        fetchDevelopers()
       })
 
       return {
