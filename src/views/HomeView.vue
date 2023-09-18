@@ -31,7 +31,6 @@
 </template>
 
 <script>
-  import axios from "axios";
   import { useRoute, useRouter } from 'vue-router'
   import { rawgApi } from "@/stores/index.js"
   import GamesCard from '@/components/GamesCard.vue'
