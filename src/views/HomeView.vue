@@ -4,7 +4,7 @@
         <h1 class="section-title">Jogos</h1>
         <CardsRow>
           <GamesCard
-            v-for="game in games"
+            v-for="game in rawg.getGames"
             :key="game.id"
             :game="game"
             @click="viewGameDetails(game.id)"
@@ -19,7 +19,7 @@
       <h1 class="section-title">Desenvolvedoras</h1>
       <CardsRow>
         <DevelopersCard
-          v-for="dev in developers"
+          v-for="dev in rawg.getDevelopers"
           :key="dev.id"
           :dev="dev"
 
@@ -33,6 +33,7 @@
 <script>
   import axios from "axios";
   import { useRoute, useRouter } from 'vue-router'
+  import { rawgApi } from "@/stores/index.js"
   import GamesCard from '@/components/GamesCard.vue'
   import CardsRow from '@/components/CardsRow.vue'
   import DevelopersCard from '@/components/DevelopersCard.vue'
@@ -47,34 +48,40 @@
       DevelopersCard,
     },
     setup(){
-      let games = ref({})
-      let developers = ref({})
+      // let games = ref({})
+      // let developers = ref({})
+
       const route = useRoute()
       const router = useRouter()
 
+      const rawg = rawgApi()
+      rawg.fetchGames()
+      rawg.fetchDevelopers()
+
       const viewGameDetails = gameId => router.push(`/games/${gameId}`)
 
-      const fetchGames = () => {
-        fetch('https://api.rawg.io/api/games?key=efb519ffa3e047cebdba546fdcfd63d2&page_size=6')
-        .then(res => res.json())
-        .then(data => games.value = data.results)
-      }
+      // const fetchGames = () => {
+      //   fetch('https://api.rawg.io/api/games?key=efb519ffa3e047cebdba546fdcfd63d2&page_size=6')
+      //   .then(res => res.json())
+      //   .then(data => games.value = data.results)
+      // }
 
-      const fetchDevelopers = () => {
-        fetch('https://api.rawg.io/api/developers?key=efb519ffa3e047cebdba546fdcfd63d2&page_size=6')
-        .then(res => res.json())
-        .then(data => developers.value = data.results) 
-      }
+      // const fetchDevelopers = () => {
+      //   fetch('https://api.rawg.io/api/developers?key=efb519ffa3e047cebdba546fdcfd63d2&page_size=6')
+      //   .then(res => res.json())
+      //   .then(data => developers.value = data.results) 
+      // }
 
       onBeforeMount(() => {
-        fetchGames()
-        fetchDevelopers()
+        // fetchGames()
+        // fetchDevelopers()
       })
 
       return {
-        games,
-        developers,
-        viewGameDetails
+        // games,
+        // developers,
+        viewGameDetails,
+        rawg
       }
     }
   } 
