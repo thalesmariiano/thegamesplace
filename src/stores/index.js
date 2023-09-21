@@ -5,7 +5,9 @@ export const rawgApi = defineStore('gameId', {
   state: () => {
     return {
       games: [],
-      developers: []
+      developers: [],
+      gamesDetails: [],
+      id: 0
     }
   },
   actions: {
@@ -25,6 +27,20 @@ export const rawgApi = defineStore('gameId', {
       fetch(api)
         .then(res => res.json())
         .then(data => this.developers = data.results) 
+    },
+
+    fetchGameDetail(id){   
+      this.id = id
+      
+      const api = `https://api.rawg.io/api/games/${id}?key=efb519ffa3e047cebdba546fdcfd63d2`
+      const gameExist = this.gamesDetails.find(game => game.id == id)
+
+      if(!gameExist){
+        fetch(api)
+          .then(res => res.json())
+          .then(data => this.gamesDetails.push(data)) 
+      }
+      
     }
   },
 
@@ -35,7 +51,12 @@ export const rawgApi = defineStore('gameId', {
 
     getDevelopers(state){
       return state.developers
+    },
+
+    getGameDetail(state){
+      return state.gamesDetails.find(game => game.id == state.id)
     }
+
   }
 
 })

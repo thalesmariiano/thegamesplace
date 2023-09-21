@@ -1,5 +1,5 @@
 <template>
-  <section class="mb-5">
+  <section class="mb-5 p-5">
       <div>
         <h1 class="section-title">Jogos</h1>
         <CardsRow>
@@ -14,7 +14,7 @@
         </CardsRow>
       </div>
   </section>
-  <section>
+  <section class="p-5">
     <div>
       <h1 class="section-title">Desenvolvedoras</h1>
       <CardsRow>
@@ -40,16 +40,12 @@
   import { ref, onBeforeMount } from 'vue'
 
   export default {
-    name: 'App',
     components: {
       CardsRow,
       GamesCard,
       DevelopersCard,
     },
     setup(){
-      // let games = ref({})
-      // let developers = ref({})
-
       const route = useRoute()
       const router = useRouter()
 
@@ -58,27 +54,7 @@
       rawg.fetchDevelopers()
 
       const viewGameDetails = gameId => router.push(`/games/${gameId}`)
-
-      // const fetchGames = () => {
-      //   fetch('https://api.rawg.io/api/games?key=efb519ffa3e047cebdba546fdcfd63d2&page_size=6')
-      //   .then(res => res.json())
-      //   .then(data => games.value = data.results)
-      // }
-
-      // const fetchDevelopers = () => {
-      //   fetch('https://api.rawg.io/api/developers?key=efb519ffa3e047cebdba546fdcfd63d2&page_size=6')
-      //   .then(res => res.json())
-      //   .then(data => developers.value = data.results) 
-      // }
-
-      onBeforeMount(() => {
-        // fetchGames()
-        // fetchDevelopers()
-      })
-
       return {
-        // games,
-        // developers,
         viewGameDetails,
         rawg
       }

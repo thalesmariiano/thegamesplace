@@ -2,7 +2,7 @@
   <header>
     <AppHeader />
   </Header>
-  <div class="p-5 min-h-screen">
+  <div class="min-h-screen">
     <RouterView />
   </div>
   <footer>
