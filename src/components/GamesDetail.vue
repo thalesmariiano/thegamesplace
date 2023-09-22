@@ -8,16 +8,29 @@
 					{{ game.name }}
 				</h1>
 				<p
-					v-show="game.released">
-					{{ new Date(game.released).getFullYear() }}
-				</p>
-				<p
+					class="text-neutral-400 text-sm ml-2"
 					v-for="developer in game.developers"
 					:key="developer.id">
 					{{ developer.name }}
 				</p>
 			</div>
-
+		</div>
+	</div>
+	<div class="px-5 pt-2">
+		<div class="flex gap-3 mb-2">
+			<p
+				class="text-neutral-400"
+				v-show="game.released">
+				{{ new Date(game.released).getFullYear() }}
+			</p>
+			<p
+				class="text-sm text-white bg-green-500 rounded px-1 py-0.5">
+				{{ game.esrb_rating.name }}
+			</p>
+		</div>
+		<div>
+			<h1 class="font-bold uppercase text-3xl text-neutral-300 mb-2">Descrição</h1>
+			<p class="text-neutral-400">{{ game.description_raw }}</p>
 		</div>
 	</div>
 
