@@ -2,10 +2,10 @@
 	<div class="w-80 h-screen bg-neutral-900 fixed top-0 right-0 z-50 p-5 flex flex-col">
 		<div class="self-end">
 			<button
-				class="px-5 py-0.5 bg-red-500 rounded font-bold"
+				class="px-2 text-3xl bg-neutral-950 rounded font-bold"
 				@click="$emit('close')"
 			>
-				Fechar
+				X
 			</button>
 		</div>
 		<div>
