@@ -1,4 +1,5 @@
 import './index.css'
+import 'animate.css'
 
 
 import { createApp } from 'vue'
