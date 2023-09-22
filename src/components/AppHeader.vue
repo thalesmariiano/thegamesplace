@@ -18,7 +18,7 @@
 		</div>
 
 		<DrawerMenu
-			v-if="open"
+			v-show="open"
 			@close="closeDrawer"
 		/>
 		
