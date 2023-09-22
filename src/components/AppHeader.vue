@@ -17,10 +17,16 @@
 			</button>
 		</div>
 
-		<DrawerMenu
-			v-show="open"
-			@close="closeDrawer"
-		/>
+		<Transition
+			name="custom-classes"
+			enter-active-class="animate__animated animate__slideInRight"
+			leave-active-class="animate__animated animate__slideOutRight"
+		>
+			<DrawerMenu
+				v-show="open"
+				@close="closeDrawer"
+			/>
+		</Transition>
 		
 	</div>
 </template>
