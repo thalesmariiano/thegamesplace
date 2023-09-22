@@ -11,9 +11,27 @@
 		<div>
 			<nav>
 				<ul class="space-y-2 mt-5">
-					<li><RouterLink class="text-2xl font-semibold hover:underline" to="/">Início</RouterLink></li>
-					<li><RouterLink class="text-2xl font-semibold hover:underline" to="/games">Jogos</RouterLink></li>
-					<li><RouterLink class="text-2xl font-semibold hover:underline" to="/developers">Desenvolvedoras</RouterLink></li>
+					<li>
+						<RouterLink
+							@click="$emit('close')"
+							class="text-2xl font-semibold hover:underline"
+							to="/">
+							Início
+						</RouterLink></li>
+					<li>
+						<RouterLink
+							@click="$emit('close')" 
+							class="text-2xl font-semibold hover:underline"
+							to="/games">
+							Jogos
+						</RouterLink></li>
+					<li>
+						<RouterLink
+							@click="$emit('close')" 
+							class="text-2xl font-semibold hover:underline"
+							to="/developers">
+							Desenvolvedoras
+						</RouterLink></li>
 				</ul>
 			</nav>
 		</div>
