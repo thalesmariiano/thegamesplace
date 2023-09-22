@@ -1,10 +1,4 @@
 <template>
-	<p 
-		v-if="!rawg.getGameDetail"
-		class="w-full font-bold py-2 text-center bg-red-700 text-white"
-	>
-		Carregando...
-	</p>
 	<GamesDetail
 		:game="rawg.getGameDetail"
 	/>
@@ -25,7 +19,6 @@
 			const rawg = rawgApi()
 
 		    rawg.fetchGameDetail(route.params.id)
-		    console.log(rawg.getGameDetail)
 
 			return {
 				route,
